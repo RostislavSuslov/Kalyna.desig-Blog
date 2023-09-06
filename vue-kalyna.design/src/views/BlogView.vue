@@ -1,8 +1,11 @@
+<script setup lang="ts">
+  import BlogPost from '../components/BlogPost.vue'
+</script>
+
 <template>
-  <div class="blog">
-    <h1 class="text-3xl underline font-bold">This is an blog page</h1>
-  </div>
+  <BlogPost />
 </template>
+
 
 <style>
 @media (min-width: 1024px) {

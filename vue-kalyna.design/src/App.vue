@@ -1,28 +1,31 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+
 import HelloWorld from './components/HelloWorld.vue'
+import TheWelcome from './components/TheWelcome.vue'
+import BlogPost from './components/BlogPost.vue'
 </script>
 
 <template>
-
- 
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <div class="container flex mx-auto">
+      <a href="/home" class="logo">
+        <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+      </a>
+      <nav>
+        <RouterLink terLink to="/home">Home </RouterLink>
+        <RouterLink to="/blog">Blog</RouterLink>
+      </nav>  
+      </div>
+  </header>
+  <div class="wrapper">
+    <div class="container  mx-auto">
 
-    <div class="wrapper">
       <HelloWorld msg="You did it!" />
       <h1 class="text-3xl underline font-bold">Hello world!</h1>
-
-      <nav>
-        <RouterLink to="/">Home </RouterLink>
-        <RouterLink to="/blog">Blog </RouterLink>
-        <RouterLink to="/single-post">Single post</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+      <RouterView />
     </div>
-  </header>
-
-  <RouterView />
+  </div>
 </template>
 
 <style scoped>
