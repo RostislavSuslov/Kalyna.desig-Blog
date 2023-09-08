@@ -1,27 +1,27 @@
 <template> 
-  <div class="single-post">
-    <h1 class="text-1xl underline font-bold">This is an single-post page {{ post.id }}</h1>
-    <div class="content">
+    <div class="container">
         <h1 class="text-5xl underline font-bold"> {{ post.title }}</h1>
+        <h5>This is an single-post page {{ post.id }}</h5>
         <p>{{ post.body }}</p>
+ 
+        <div class="comments">
+            <ul>
+                <li v-for="comment in comments" :key="comment.id">
+                    <div>{{comment.name}}</div>
+                    <div>{{comment.email}}</div>
+                    <div>{{comment.body}}</div>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="comments">
-      <ul>
-        <li  v-for="comment in comments" :key="comment.id">
-          <div>{{comment.name}}</div>
-          <div>{{comment.email}}</div>
-          <div>{{comment.body}}</div>
-        </li>
-      </ul>
-    </div>
-  </div>
+   
 </template>
 
 <script>  
 import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import axios from 'axios';
-
+import PageTitle from '../components/PageTitle.vue'
 
 export default {
   setup() {

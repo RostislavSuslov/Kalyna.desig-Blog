@@ -1,9 +1,11 @@
 <script setup lang="ts">
+  import PageTitle from '../components/PageTitle.vue'
   import BlogPost from '../components/BlogPost.vue'
 </script>
 
 <template>
-  <BlogPost />
+    <PageTitle title="Blog Page" description="Description this page " />
+    <BlogPost />
 </template>
 
 

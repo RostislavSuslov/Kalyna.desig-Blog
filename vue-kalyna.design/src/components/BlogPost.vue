@@ -1,23 +1,23 @@
 <template> 
-
-  <div class="blog-post">
-    <h2> Кол-во статей {{ posts.length }}</h2>
-     <div class="posts">
-      <div class="post-item" v-for="post in posts" :key="post.id">
-          <h2 class="post-title" >{{ post.title }}</h2>
-          <h3 class="post-id" >{{ post.id }}</h3>
-          <router-link :to="{ name: 'single-post', params: { postId: post.id } }" class="btn btn-primary">Go to Пост</router-link>
-          <p class="post-description"> {{ post.body }}</p>
-      </div>
+    <div class="blog-post">
+        <div class="container">
+            <h2> Кол-во статей {{ posts.length }}</h2>
+            <div class="posts">
+                <div class="post-item" v-for="post in posts" :key="post.id">
+                    <h2 class="post-title" >{{ post.title }}</h2>
+                    <p class="post-description"> {{ post.body }}</p>
+                    <router-link :to="{ name: 'single-post', params: { postId: post.id } }" class="btn btn-primary">Читать статью</router-link>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>  
 import { ref, onMounted, reactive } from 'vue';
 import axios from 'axios';
 import { RouterLink, RouterView } from 'vue-router'
-
+import PageTitle from '../components/PageTitle.vue'
 export default {
   components: {
     RouterLink
@@ -43,28 +43,29 @@ export default {
   }
 }
 
-
-// const test = fetch('https://jsonplaceholder.typicode.com/todos/1')
-//       .then(response => response.json())
-//       .then(json => console.log(json))
-//   console.log(test);
+ 
 </script>
-<!--   
-  <script>
-  export default {
-    props: {
-      post: Object, // Принимаем объект с данными о посте
-    },
-  };
-  </script> -->
-  
-  <style scoped>
-  /* Стили для карточки блога */
+<style scoped>
   .blog-post {
-    margin: 20px;
-    padding: 10px;
+ 
     border: 1px solid #ccc;
     background-color: #f9f9f9;
   }
-  </style>
+  .posts {  
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .post-item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    background: #2b2823;
+    color: #fff;
+    padding: 30px;
+    align-items: flex-start;
+  }
+
+</style>
   
