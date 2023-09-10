@@ -55,6 +55,14 @@ p {
     margin-bottom: .5em;
 }
 
+a {
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
 .container,
 .page-title {
     max-width: 1536px;
@@ -74,11 +82,11 @@ p {
 }
 
 .btn:hover {
-   color: #fff;     
+    color: #fff;
     background-color: var(--secondary-color);
 }
 
- 
+
 
 .btn:focus {
     box-shadow: -1px 1px 3px #9100ffd6;
