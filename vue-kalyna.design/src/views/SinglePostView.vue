@@ -26,19 +26,19 @@ import PageTitle from '../components/PageTitle.vue'
 export default {
   setup() {
     const route = useRoute();
-    const post = ref({}); // ref динамич переменная которая меняет свои свойства
+    const post = ref({}); // dynamic variable that changes its properties
     const comments = ref([])
     // mounted
     onMounted(() => {
-      console.log('Компонент примонтирован!')
+      console.log('component is installed!')
       axios.get(`https://jsonplaceholder.typicode.com/posts/${route.params.postId}`)
       .then((response) => {
          console.log(response);
         post.value = response.data
       })
       .catch((error) => {
-        // Обработка ошибки
-        console.error("Ошибка при загрузке данных:", error);
+        // Error handling
+        console.error("Error loading data:", error);
       });  
                
       axios.get(`https://jsonplaceholder.typicode.com/posts/${route.params.postId}/comments`)
@@ -48,8 +48,8 @@ export default {
         comments.value = response.data
       })
       .catch((error) => {
-        // Обработка ошибки
-        console.error("Ошибка при загрузке данных:", error);
+        // Error handling
+        console.error("Error loading data:", error);
       });  
     })
     return {post, comments};
