@@ -17,21 +17,17 @@
         <div class="container">
 
 
-            <RouterLink terLink to="home" class="logo"><img src="src/assets/logo2.svg" alt="Logo" /></RouterLink>
+            <RouterLink terLink to="/" class="logo"><img src="src/assets/logo2.svg" alt="Logo" /></RouterLink>
 
             <nav class="header-nav">
 
-                <button data-collapse-toggle="mega-menu-full" type="button"
-                    class="inline-flex   rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                    aria-controls="mega-menu-full" aria-expanded="false">
+                <button data-collapse-toggle="mega-menu-full" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu-full" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M1 1h15M1 7h15M1 13h15" />
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"></path>
                     </svg>
                 </button>
-              
+                <div id="mega-menu-full" class="items-center justify-between w-full md:flex md:w-auto md:order-1 hidden">
                     <ul class="nav-list">
                         <li class="list-item">
                             <RouterLink terLink to="/home">Home </RouterLink>
@@ -53,7 +49,7 @@
                             <a href="Contact">Contact</a>
                         </li>
                     </ul>
-               
+                </div>
                 <div id="mega-menu-full-dropdown" class="mega-menu-dropdown  hidden bg-white   shadow-sm border-y ">
                     <ul aria-labelledby="mega-menu-full-dropdown-button">
                         <li>
