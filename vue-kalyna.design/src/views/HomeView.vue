@@ -124,5 +124,5 @@ import TheWelcome from '../components/TheWelcome.vue'
         </div>
     </section>
 
-    <TheWelcome /> 
+        <TheWelcome /> 
 </template>

@@ -1,15 +1,38 @@
-<script setup lang="ts">
-    import {
-        onMounted
-    } from 'vue'
-    import {
-        initFlowbite
-    } from 'flowbite'
+<script>
+   
+    import {ref, onMounted, reactive} from 'vue';
+    import axios from 'axios';
+    import {RouterLink, RouterView } from 'vue-router';
+    import {initFlowbite} from 'flowbite';
 
-    // initialize components based on data attribute selectors
-    onMounted(() => {
+    export default {
+        components: {RouterLink},
+
+        setup() {
+            const posts = ref([]);
+            console.dir(posts);
+ 
+            onMounted(() => {
+                console.log('component is mounted!')
+                axios.get("https://jsonplaceholder.typicode.com/posts")
+            .then((response) => {
+            // console.table(response.data);
+               posts.value = response.data
+            })
+            .catch((error) => {
+              // Error handling
+              console.error("Error loading data:", error);
+            });
+        })
+        return {
+            posts
+        };
+    }
+}
+onMounted(() => {
         initFlowbite();
     })
+    
 </script>
 
 <template>
@@ -51,65 +74,29 @@
             <div id="mega-menu-full-dropdown" class="mt-1 hidden bg-white border-gray-200 shadow-sm border-y dark:bg-gray-800 dark:border-gray-600">
                 <div class="grid max-w-screen-2xl  px-4 py-5 mx-auto text-gray-900 dark:text-white sm:grid-cols-2 md:grid-cols-3 md:px-6">
                     <ul aria-labelledby="mega-menu-full-dropdown-button">
-                        <li>
-                            <a href="#" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <div class="font-semibold">Online Stores</div>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <div class="font-semibold">Segmentation</div>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <div class="font-semibold">Marketing CRM</div>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                            </a>
+                        <li v-for="(post, index) in posts.slice(0, 3)" :key="post.id">
+                            <router-link :to="{ name: 'nav-single-post', params: { postId: post.id } }" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <div class="font-semibold">{{ post.title }}</div>
+                                <span class="text-sm text-gray-500 dark:text-gray-400"> {{ post.body }}</span>
+                            </router-link>
                         </li>
                     </ul>
-                    <ul>
-                        <li>
-                            <a href="#" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <div class="font-semibold">Online Stores</div>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <div class="font-semibold">Segmentation</div>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <div class="font-semibold">Marketing CRM</div>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                            </a>
+                    <ul aria-labelledby="mega-menu-full-dropdown-button">
+                        <li v-for="(post, index) in posts.slice(3, 6)" :key="post.id">
+                            <router-link :to="{ name: 'nav-single-post', params: { postId: post.id } }" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <div class="font-semibold">{{ post.title }}</div>
+                                <span class="text-sm text-gray-500 dark:text-gray-400"> {{ post.body }}</span>
+                            </router-link>
                         </li>
                     </ul>
-                    <ul class="hidden md:block">
-                        <li>
-                            <a href="#" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <div class="font-semibold">Audience Management</div>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                            </a>
+                    <ul aria-labelledby="mega-menu-full-dropdown-button">
+                        <li v-for="(post, index) in posts.slice(6, 9)" :key="post.id">
+                            <router-link :to="{ name: 'nav-single-post', params: { postId: post.id } }" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <div class="font-semibold">{{ post.title }}</div>
+                                <span class="text-sm text-gray-500 dark:text-gray-400"> {{ post.body }}</span>
+                            </router-link>
                         </li>
-                        <li>
-                            <a href="#" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <div class="font-semibold">Creative Tools</div>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <div class="font-semibold">Marketing Automation</div>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                            </a>
-                        </li>
-                    </ul>
+                    </ul> 
                 </div>
             </div>
         </nav>

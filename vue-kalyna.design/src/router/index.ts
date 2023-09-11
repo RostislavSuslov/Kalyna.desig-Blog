@@ -26,6 +26,12 @@ const router = createRouter({
       props: true
     },
     {
+      path: '/blog/post-:postId',
+      name: 'nav-single-post',
+      component: SinglePostView,
+      props: true
+    },
+    {
       path: '/contacts',
       name: 'contacts',
       component: ContactsView,
