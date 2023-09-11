@@ -4,8 +4,10 @@
 </script>
 
 <template>
-    <PageTitle title="Blog Page" description="Description this page " />
+    <PageTitle title="This Week Blogs" description="If you're looking for random paragraphs, you've come to the right place. When a random word or a random sentence isn't quite enough" />
+ 
     <BlogPost />
+    
 </template>
 
 
@@ -16,5 +18,7 @@
     display: flex;
     align-items: center;
   }
+
+ 
 }
 </style>

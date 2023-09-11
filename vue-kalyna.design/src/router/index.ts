@@ -2,26 +2,39 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import BlogView from '../views/BlogView.vue'
 import SinglePostView from '../views/SinglePostView.vue'
+import ContactsView from '../views/ContactsView.vue'
+
  
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/home',
-      name: 'home',
-      component: HomeView
+      path: '/',
+      redirect: '/blog' 
     },
     {
       path: '/blog',
       name: 'blog',
-      component: BlogView
+      component: BlogView,
+      meta: { isHome: true }
     },
     {
       path: '/blog/post-:postId',
       name: 'single-post',
       component: SinglePostView,
       props: true
+    },
+    {
+      path: '/contacts',
+      name: 'contacts',
+      component: ContactsView,
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: HomeView,
+    
     },
     // {
     //   path: '/about',

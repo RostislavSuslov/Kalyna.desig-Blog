@@ -63,11 +63,25 @@ a:hover {
     color: var(--secondary-color);
 }
 
+#app {
+    display: flex;
+    flex-direction: column;
+    
+    min-height: 100vh;
+}
+footer {
+    margin-top: auto;
+}
+
 .container,
 .page-title {
     max-width: 1536px;
     margin: 0 auto;
     padding: 0 12px;
+}
+
+.page-title  {
+    padding: 24px 0;
 }
 
 .btn {
