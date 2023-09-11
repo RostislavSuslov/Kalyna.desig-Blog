@@ -57,10 +57,5 @@ export default {
 }
 </script>
 <style>
-  @media (min-width: 1024px) {
-    .single-post {
-      min-height: 100vh;
-     
-    }
-  }
+ 
 </style>
