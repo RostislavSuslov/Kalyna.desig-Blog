@@ -8,7 +8,7 @@
       </div>
       <div class="flex flex-wrap -mx-4">
 
-        <div class="w-full md:w-1/2 lg:w-1/3 px-4"  v-for="item in advantages" :key="post.id">
+        <div class="advantage-item w-full md:w-1/2 lg:w-1/3 px-4"  v-for="item in advantages" :key="post.id">
           <div class="h-full p-8 text-center hover:bg-white rounded-md hover:shadow-xl transition duration-200">
             <div class="inline-flex h-16 w-16 mb-6 mx-auto items-center justify-center text-white bg-orange-500 rounded-lg">
                 {{ item.icon }}
@@ -27,34 +27,39 @@
 </template>
 
 <script>
-  import {ref, onMounted, reactive} from 'vue';
-  import axios from 'axios';
-  import {RouterLink, RouterView } from 'vue-router';
-  import PageTitle from '../components/PageTitle.vue';
-  export default {components: {RouterLink},
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 
-    setup() {
-      const advantages = ref([]);
-      console.dir(advantages);
-      // mounted
-      onMounted(() => {
-        console.log('component is mounted!')
-        axios.get("https://github.com/RostislavSuslov/Kalyna.design-Blog/blob/main/vue-kalyna.design/src/assets/json/advantages.json")
-          .then((response) => {
-            // console.table(response.data);
-            advantages.value = response.data
-          })
-          .catch((error) => {
-            // Error handling
-            console.error("Error loading data:", error);
-          });
-      })
-      return {
-        advantages
-      };
-    }
-  }
+export default {
+  setup() {
+    const advantages = ref([]);
+
+    // Mounted
+    onMounted(() => {
+     
+        const advantageItem = document.querySelectorAll('.advantage-item')
+        advantageItem.forEach(item => {
+            fetch('/src/assets/json/advantage.json')
+                .then((response) => {
+                    return response.json();
+                })
+                .then((myContent) => {
+                    let advantage = advantage.title
+                    console.log(advantage);
+
+                     
+                });
+        })
+        
+    });
+
+    return {
+      advantages,
+    };
+  },
+};
 </script>
+
 
 <style>
 
