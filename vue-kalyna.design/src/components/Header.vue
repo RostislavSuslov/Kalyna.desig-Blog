@@ -39,7 +39,7 @@ onMounted(() => {
     <header class="dark">
         <nav class="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-2xl p-4">
-                <RouterLink terLink to="/home" class="logo"><img src="src/assets/logo2.svg" alt="Logo" /></RouterLink>
+                <RouterLink terLink to="/home" class="logo"><img src="src/assets/img/logo.svg" alt="Logo" /></RouterLink>
                 <button data-collapse-toggle="mega-menu-full" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu-full" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -75,7 +75,7 @@ onMounted(() => {
                 <div class="grid max-w-screen-2xl  px-4 py-5 mx-auto text-gray-900 dark:text-white sm:grid-cols-2 md:grid-cols-3 md:px-6">
                     <ul aria-labelledby="mega-menu-full-dropdown-button">
                         <li v-for="(post, index) in posts.slice(0, 3)" :key="post.id">
-                            <router-link :to="{ name: 'nav-single-post', params: { postId: post.id } }" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+                            <router-link :to="{ name: 'single-post', params: { postId: post.id } }" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
                                 <div class="font-semibold">{{ post.title }}</div>
                                 <span class="text-sm text-gray-500 dark:text-gray-400"> {{ post.body }}</span>
                             </router-link>
@@ -83,7 +83,7 @@ onMounted(() => {
                     </ul>
                     <ul aria-labelledby="mega-menu-full-dropdown-button">
                         <li v-for="(post, index) in posts.slice(3, 6)" :key="post.id">
-                            <router-link :to="{ name: 'nav-single-post', params: { postId: post.id } }" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+                            <router-link :to="{ name: 'single-post', params: { postId: post.id } }" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
                                 <div class="font-semibold">{{ post.title }}</div>
                                 <span class="text-sm text-gray-500 dark:text-gray-400"> {{ post.body }}</span>
                             </router-link>
@@ -91,7 +91,7 @@ onMounted(() => {
                     </ul>
                     <ul aria-labelledby="mega-menu-full-dropdown-button">
                         <li v-for="(post, index) in posts.slice(6, 9)" :key="post.id">
-                            <router-link :to="{ name: 'nav-single-post', params: { postId: post.id } }" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+                            <router-link :to="{ name: 'single-post', params: { postId: post.id } }" class="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
                                 <div class="font-semibold">{{ post.title }}</div>
                                 <span class="text-sm text-gray-500 dark:text-gray-400"> {{ post.body }}</span>
                             </router-link>
