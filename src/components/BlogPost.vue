@@ -1,48 +1,41 @@
 <template>
-  <div class="blog-post">
-    <div class="container">
-      <p class="text-gray-600 dark:text-white mt-4 text-right">Number of articles <b>{{ posts.length }}</b></p>
-      <div class="posts">
-        <div class="post-item" v-for="post in posts" :key="post.id">
-          <h2 class="post-title">{{ post.title }}</h2>
-          <p class="post-description"> {{ post.body }}</p>
-          <router-link :to="{ name: 'single-post', params: { postId: post.id } }">Read the article <i
-              class="display-inline-block mdi mdi-arrow-left font-normal text-gray-300 ml-1"></i></router-link>
+    <div class="blog-post">
+      <div class="container">
+        <p class="text-gray-600 dark:text-white mt-4 text-right">Number of articles <b>{{ posts.length }}</b></p>
+        <div class="posts">
+          <div class="post-item" v-for="post in posts" :key="post.id">
+            <h2 class="post-title">{{ post.title }}</h2>
+            <p class="post-description"> {{ post.body }}</p>
+            <router-link :to="{ name: 'single-post', params: { postId: post.id } }">Read the article <i
+                class="display-inline-block mdi mdi-arrow-left font-normal text-gray-300 ml-1"></i></router-link>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </template>
 
-<script>
-  import {ref, onMounted, reactive} from 'vue';
+<script setup>
+  import {ref, onMounted} from 'vue';
   import axios from 'axios';
   import {RouterLink, RouterView } from 'vue-router';
-  import PageTitle from '../components/PageTitle.vue';
-  export default {components: {RouterLink},
-
-    setup() {
-      const posts = ref([]);
-      console.dir(posts);
-      // mounted
-      onMounted(() => {
-        console.log('component is mounted!')
-        axios.get("https://jsonplaceholder.typicode.com/posts")
-          .then((response) => {
-            // console.table(response.data);
-            posts.value = response.data
-          })
-          .catch((error) => {
-            // Error handling
-            console.error("Error loading data:", error);
-          });
-      })
-      return {
-        posts
-      };
-    }
-  }
+  
+  const posts = ref([]);
+      
+  // mounted
+  onMounted(() => {
+      // console.log('component is mounted!')
+      axios.get("https://jsonplaceholder.typicode.com/posts")
+        .then((response) => {
+          // console.table(response.data);
+          posts.value = response.data
+        })
+        .catch((error) => {
+          // Error handling
+          console.error("Error loading data:", error);
+        });
+  })
 </script>
+
 <style scoped>
   .blog-post {
 
