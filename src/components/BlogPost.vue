@@ -14,16 +14,12 @@
   </div>
 </template>
 
-<script>
+<script setup>
   import {ref, onMounted, reactive} from 'vue';
   import axios from 'axios';
-  import {RouterLink, RouterView } from 'vue-router';
-  import PageTitle from '../components/PageTitle.vue';
-  export default {components: {RouterLink},
 
-    setup() {
-      const posts = ref([]);
-      console.dir(posts);
+  const posts = ref([]);
+
       // mounted
       onMounted(() => {
         console.log('component is mounted!')
@@ -36,16 +32,11 @@
             // Error handling
             console.error("Error loading data:", error);
           });
+ 
       })
-      return {
-        posts
-      };
-    }
-  }
 </script>
 <style scoped>
   .blog-post {
-
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     background-color: #f9f9f9;

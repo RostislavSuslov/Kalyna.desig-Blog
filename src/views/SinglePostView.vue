@@ -1,20 +1,20 @@
 <template> 
+  <div id="root">
     <div class="container">
-        <h1 class="text-5xl underline font-bold"> {{ post.title }}</h1>
-        <h5>This is an single-post page {{ post.id }}</h5>
-        <p>{{ post.body }}</p>
- 
-        <div class="comments">
-            <ul>
-                <li v-for="comment in comments" :key="comment.id">
-                    <div>{{comment.name}}</div>
-                    <div>{{comment.email}}</div>
-                    <div>{{comment.body}}</div>
-                </li>
-            </ul>
-        </div>
+      <h1 class="text-5xl underline font-bold"> {{ post.title }}</h1>
+      <h5>This is an single-post page {{ post.id }}</h5>
+      <p>{{ post.body }}</p>
+      <div class="comments">
+        <ul>
+          <li v-for="comment in comments" :key="comment.id">
+            <div>{{comment.name}}</div>
+            <div>{{comment.email}}</div>
+            <div>{{comment.body}}</div>
+          </li>
+        </ul>
+      </div>
     </div>
-   
+  </div>
 </template>
 
 <script>  

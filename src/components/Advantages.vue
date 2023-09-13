@@ -11,7 +11,7 @@
         <div class="advantage-item w-full md:w-1/2 lg:w-1/3 px-4"  v-for="item in advantages"  >
           <div class="h-full p-8 text-center hover:bg-white rounded-md hover:shadow-xl transition duration-200">
             <div class="inline-flex h-16 w-16 mb-6 mx-auto items-center justify-center text-white bg-orange-500 rounded-lg">
-                {{ item.url }}
+                <img src="{{ item.url }}" alt="icon">
             </div>
             <h3 class="mb-4 text-xl md:text-2xl leading-tight font-bold">{{ item.title }}</h3>
             <p class="text-coolGray-500 font-medium">{{ item.title }}</p>
@@ -20,36 +20,33 @@
 
       </div>
     </div>
-</section>
+  </section>
 </template>
 
-<script>
+<script setup>
  
 
     import {ref, onMounted, reactive} from 'vue';
     import axios from 'axios';
  
+    const advantages = ref([]);
 
-    setup() {
-      const advantages = ref([]);
-      console.dir(advantages);
+    console.dir(advantages);
       // mounted
-      onMounted(() => {
-        console.log('component is mounted!')
-        axios.get("https://jsonplaceholder.typicode.com/photos")
-          .then((response) => {
-            // console.table(response.data);
-            advantages.value = response.data
-          })
-          .catch((error) => {
-            // Error handling
-            console.error("Error loading data:", error);
-          });
-      })
-      return {
-        advantages
-      };
-    }
+    onMounted(() => {
+      console.log('component is mounted!')
+      axios.get("https://jsonplaceholder.typicode.com/photos")
+        .then((response) => {
+          // console.table(response.data);
+          advantages.value = response.data
+        })
+        .catch((error) => {
+          // Error handling
+          console.error("Error loading data:", error);
+        });
+    })
+     
+   
  
 </script>
 

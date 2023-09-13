@@ -6,13 +6,13 @@
 </script>
 
 <template>
-    <Header />
-    <main class="wrapper">
-        <RouterView />
-       
-        
-    </main>
-    <Footer />
+    <div id="root">
+        <Header />
+        <main class="wrapper">
+            <RouterView />
+        </main>
+        <Footer />
+    </div>
 </template>
 
 <style scoped>

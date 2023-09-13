@@ -3,8 +3,9 @@
 </script>
 
 <template>
-  <PageTitle title="Contacts Page" description="Description this page " />
-  
+  <div id="root">
+      <PageTitle title="Contacts Page" description="Description this page " />
+  </div>
 </template>
 
 
