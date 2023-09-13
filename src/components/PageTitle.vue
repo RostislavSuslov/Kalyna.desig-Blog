@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts">  // https://prnt.sc/Dmhc1hA1vMo-
 defineProps<{
   title: string,
   description: string,
