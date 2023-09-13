@@ -5,8 +5,10 @@
 </script>
 
 <template>
-      <FirstScreen />
-      <Advantages /> 
-      <TheWelcome /> 
+  <div id="root">
+    <FirstScreen />
+    <Advantages /> 
+    <TheWelcome /> 
+  </div>
 </template>
 

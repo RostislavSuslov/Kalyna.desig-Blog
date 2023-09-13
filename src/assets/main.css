@@ -64,13 +64,17 @@ a:hover {
 }
 
 #app {
+   
+}
+
+#root {
     display: flex;
     flex-direction: column;
-    
-    min-height: 100vh;
+    min-height: calc(100vh - 329px);
 }
+
 footer {
-    margin-top: auto;
+   
 }
 
 .container,
@@ -80,7 +84,7 @@ footer {
     padding: 0 12px;
 }
 
-.page-title  {
+.page-title {
     padding: 24px 0;
 }
 

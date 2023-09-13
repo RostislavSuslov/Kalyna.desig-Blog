@@ -1,38 +1,26 @@
-<script>
+<script setup>
    
     import {ref, onMounted, reactive} from 'vue';
     import axios from 'axios';
     import {RouterLink, RouterView } from 'vue-router';
     import {initFlowbite} from 'flowbite';
 
-    export default {
-        components: {RouterLink},
-
-        setup() {
-            const posts = ref([]);
-            console.dir(posts);
+    const posts = ref([]);
  
-            onMounted(() => {
-                console.log('component is mounted!')
-                axios.get("https://jsonplaceholder.typicode.com/posts")
-            .then((response) => {
-            // console.table(response.data);
-               posts.value = response.data
-            })
-            .catch((error) => {
-              // Error handling
-              console.error("Error loading data:", error);
-            });
+    onMounted(() => {
+        console.log('component is mounted!')
+        axios.get("https://jsonplaceholder.typicode.com/posts")
+        .then((response) => {
+        // console.table(response.data);
+           posts.value = response.data
         })
-        return {
-            posts
-        };
-    }
-}
-onMounted(() => {
-        initFlowbite();
+        .catch((error) => {
+          // Error handling
+          console.error("Error loading data:", error);
+        });
+
+        initFlowbite(); //event.listener for click ()=> close megamenu items  
     })
-    
 </script>
 
 <template>

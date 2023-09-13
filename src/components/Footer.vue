@@ -3,7 +3,7 @@
         <div class="bg-white dark:bg-gray-900 mx-auto w-full max-w-screen-2xl  p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
-                <RouterLink terLink to="/" class="logo"><img src="src/assets/logo2.svg" alt="Logo" /></RouterLink>
+                <RouterLink terLink to="/" class="logo"><img src="src/assets/logo.svg" alt="Logo" /></RouterLink>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                 <div>
