@@ -24,8 +24,6 @@
 </template>
 
 <script setup>
- 
-
     import {ref, onMounted, reactive} from 'vue';
     import axios from 'axios';
  
