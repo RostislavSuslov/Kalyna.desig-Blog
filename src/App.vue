@@ -1,16 +1,22 @@
-<script setup>
-    import { RouterLink, RouterView } from 'vue-router'
-    import TheWelcome from './components/TheWelcome.vue'
-    import Header from './components/Header.vue'
-    import LayoutAut from './components/LayoutAut.vue'
-    import LayoutDefault from './components/LayoutDefault.vue'
-    import Footer from './components/Footer.vue'
-</script>
-
 <template>
-   
+    <div id="root">
+        <button type="button" class="btn btn-primary" @click="currentComponent = LayoutAut">LayoutAut</button>
+        <button type="button" class="btn btn-secondary" @click="currentComponent = LayoutDefault">LayoutDefault</button>
+        
+        <KeepAlive>
+            <component :is="currentComponent"></component>
+        </KeepAlive>
+    </div>
+    
 </template>
 
+<script setup>
+    import { ref } from 'vue';
+    import LayoutAut from './components/LayoutAut.vue';
+    import LayoutDefault from './components/LayoutDefault.vue';
+
+    const currentComponent = ref(LayoutAut);
+</script>
 
 
 
