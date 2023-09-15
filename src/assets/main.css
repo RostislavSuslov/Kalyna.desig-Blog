@@ -15,6 +15,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    background-color: #eff8ff;
+    color: #696969;
+}
 
 h1,
 h2,
@@ -63,18 +67,11 @@ a:hover {
     color: var(--secondary-color);
 }
 
-#app {
-   
-}
 
 #root {
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 329px);
-}
-
-footer {
-   
 }
 
 .container,

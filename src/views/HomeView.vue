@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
   import FirstScreen from '../components/FirstScreen.vue';
   import TheWelcome from '../components/TheWelcome.vue';
   import Advantages from '../components/Advantages.vue';
